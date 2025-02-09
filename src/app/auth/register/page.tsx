@@ -47,9 +47,17 @@ export default function RegisterPage() {
                 />
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+                    className="w-full bg-blue-500 text-white p-2 mb-2 rounded hover:bg-blue-600"
                 >
                     Register
+                </button>
+
+                <button
+                    onClick={() =>  router.push("/auth/login")}
+                    type="submit"
+                    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+                >
+                    Login
                 </button>
             </form>
         </div>

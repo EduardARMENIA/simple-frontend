@@ -2,9 +2,26 @@ import { makeAutoObservable } from "mobx";
 import {getCookie} from "cookies-next";
 class WorkspaceStore {
     availableSlug: boolean = false;
-    availableSlugs: Array<string> = []
+    availableSlugs: Array<string> = [];
+    workspaces: Array<any> = [];
     constructor() {
         makeAutoObservable(this);
+    }
+
+
+    async getAllWorkspaces(userId: string) {
+        const res = await fetch(`/api/workspace/${userId}`, {
+            headers: { "Content-Type": "application/json" },
+        });
+
+        if (!res.ok) throw new Error("Not found");
+
+        const jsonResponse = await res.json()
+        this.workspaces = jsonResponse.workspacesData
+
+
+
+        return this.workspaces
     }
 
     async createWorkspace(userId: string, name: string, slug: string) {
@@ -15,7 +32,26 @@ class WorkspaceStore {
         });
 
         if (!res.ok) throw new Error("Invalid credentials");
+
+        const jsonResponse = await res.json()
+        this.workspaces.push(jsonResponse.newWorkspace)
+
+        return jsonResponse
     }
+
+    async deleteWorkspace(id: string) {
+        const res = await fetch(`/api/workspace/${id}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+        });
+
+        if (!res.ok) throw new Error("Delete Failed");
+
+        this.workspaces = this.workspaces.filter(workspace => workspace._id !== id);
+
+        return res.json()
+    }
+
 
     async checkSlug(slug: string) {
         const token = getCookie('token');

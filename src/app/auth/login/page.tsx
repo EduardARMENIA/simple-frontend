@@ -45,11 +45,19 @@ export default function LoginPage() {
                     className="w-full p-2 mb-2 border rounded"
                     required
                 />
+
                 <button
+                    type="submit"
+                    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 mb-2"
+                >
+                    Login
+                </button>
+                <button
+                    onClick={() =>  router.push("/auth/register")}
                     type="submit"
                     className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
                 >
-                    Login
+                    Register
                 </button>
             </form>
         </div>

@@ -17,6 +17,7 @@ const CreatePage = observer(() => {
     const debounced = useDebouncedCallback(
         (value: any) => {
             setSlug(value);
+            workspaceStore.checkSlug(value)
         },
         1000
     );
@@ -29,8 +30,11 @@ const CreatePage = observer(() => {
         setError("");
 
         try {
-            await workspace.createWorkspace(authStore.user[0]?.id,  name, slug)
-            router.push("/dashboard");
+            if(workspaceStore.availableSlug) {
+                alert(authStore.user[0]?.id)
+                await workspace.createWorkspace(authStore.user[0]?.id,  name, slug)
+                router.push("/dashboard");
+            }
         } catch (err) {
             setError("Register failed. Check your credentials.");
         }

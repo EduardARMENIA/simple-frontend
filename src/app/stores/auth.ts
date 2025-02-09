@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import {setCookie, getCookie} from "cookies-next";
+import {setCookie, getCookie, deleteCookie} from "cookies-next";
 class AuthStore {
     user: any = [];
 
@@ -21,7 +21,7 @@ class AuthStore {
 
         setCookie("token", token);
         // @ts-ignore
-        this.user.push(data.user);
+        await this.retrieveUser()
     }
 
     async register(email: string, password: string) {
@@ -47,6 +47,11 @@ class AuthStore {
 
         let user = await response.json()
         this.user.push(user)
+    }
+
+    async logout() {
+        deleteCookie("token");
+        this.user = []
     }
 
 }
