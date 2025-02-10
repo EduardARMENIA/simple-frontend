@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7bfe24b-7aa3-4a1e-8ae7-b0c1f9462d6c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/create/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/create/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/stores/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/stores/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/stores/workspace.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/stores/workspace.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +72,8 @@
       <workItem from="1739085518876" duration="823000" />
       <workItem from="1739086415244" duration="6786000" />
       <workItem from="1739093265101" duration="22431000" />
-      <workItem from="1739163842356" duration="1309000" />
+      <workItem from="1739163842356" duration="1772000" />
+      <workItem from="1739165823097" duration="360000" />
     </task>
     <servers />
   </component>

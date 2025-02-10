@@ -10,8 +10,13 @@ class WorkspaceStore {
 
 
     async getAllWorkspaces(userId: string) {
+        const token = getCookie('token');
+
         const res = await fetch(`/api/workspace/${userId}`, {
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Content-Type": "application/json"
+            },
         });
 
         if (!res.ok) throw new Error("Not found");
@@ -23,9 +28,14 @@ class WorkspaceStore {
     }
 
     async createWorkspace(userId: string, name: string, slug: string) {
+        const token = getCookie('token');
+
         const res = await fetch("/api/workspace", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({ userId, name, slug }),
         });
 
@@ -38,9 +48,14 @@ class WorkspaceStore {
     }
 
     async deleteWorkspace(id: string) {
+        const token = getCookie('token');
+
         const res = await fetch(`/api/workspace/${id}`, {
             method: "DELETE",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Authorization": 'Bearer ' + token,
+                "Content-Type": "application/json"
+            },
         });
 
         if (!res.ok) throw new Error("Delete Failed");
