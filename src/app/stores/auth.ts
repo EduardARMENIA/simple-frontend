@@ -41,7 +41,6 @@ class AuthStore {
             headers: {
                 Authorization: 'Bearer ' + token,
                 Accept: 'application/json',
-                Caller: 'user'
             },
         })
 

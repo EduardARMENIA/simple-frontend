@@ -14,7 +14,7 @@ export function middleware(req: any) {
 
     if (token) {
         if (url.pathname === '/' || url.pathname === '/auth/login' || url.pathname === '/auth/register') {
-            url.pathname = '/dashboard';
+            url.pathname = '/admin/dashboard';
             return NextResponse.rewrite(url);
         }
     }
@@ -24,5 +24,5 @@ export function middleware(req: any) {
 }
 
 export const config = {
-    matcher: ['/', '/create', '/dashboard', '/auth/login', '/auth/register']
+    matcher: ['/', '/admin/create', '/admin/dashboard', '/auth/login', '/auth/register']
 };

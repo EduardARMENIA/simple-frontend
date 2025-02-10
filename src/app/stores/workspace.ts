@@ -19,8 +19,6 @@ class WorkspaceStore {
         const jsonResponse = await res.json()
         this.workspaces = jsonResponse.workspacesData
 
-
-
         return this.workspaces
     }
 
@@ -60,7 +58,6 @@ class WorkspaceStore {
             headers: {
                 Authorization: 'Bearer ' + token,
                 Accept: 'application/json',
-                Caller: 'user'
             },
         })
 

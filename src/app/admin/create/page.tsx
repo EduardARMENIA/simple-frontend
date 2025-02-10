@@ -7,7 +7,6 @@ import workspaceStore from "@/app/stores/workspace";
 import {useDebouncedCallback} from 'use-debounce';
 import {observer} from "mobx-react-lite";
 import workspace from "@/app/stores/workspace";
-import Navbar from "@/app/components/navbar";
 
 const CreatePage = observer(() => {
 
@@ -31,9 +30,8 @@ const CreatePage = observer(() => {
 
         try {
             if(workspaceStore.availableSlug) {
-                alert(authStore.user[0]?.id)
                 await workspace.createWorkspace(authStore.user[0]?.id,  name, slug)
-                router.push("/dashboard");
+                router.push("/admin/dashboard");
             }
         } catch (err) {
             setError("Register failed. Check your credentials.");
@@ -42,9 +40,6 @@ const CreatePage = observer(() => {
 
 
     return (
-        <div className="w-full h-screen bg-gray-100">
-            <Navbar />
-
             <div className="flex justify-center min-h-screen mt-[50px]">
                 <form
                     onSubmit={createWorkspace}
@@ -95,7 +90,6 @@ const CreatePage = observer(() => {
                     </button>
                 </form>
             </div>
-        </div>
     );
 })
 

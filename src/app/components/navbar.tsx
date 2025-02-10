@@ -14,7 +14,7 @@ const Navbar = observer(() => {
             await authStore.retrieveUser();
             if (authStore.user[0]?.id) {
                 setUserId(authStore.user[0].id);
-                await workspace.getAllWorkspaces(authStore.user[0].id);
+                // await workspace.getAllWorkspaces(authStore.user[0].id);
             }
         } catch (e) {
             return;
@@ -42,7 +42,7 @@ const Navbar = observer(() => {
             <h1 className="text-white font-bold">{authStore.user[0]?.id}</h1>
 
             <div className='flex gap-[20px]'>
-                <h1 className="text-white font-bold cursor-pointer" onClick={() => { router.push('/create')}}>create</h1>
+                <h1 className="text-white font-bold cursor-pointer" onClick={() => { router.push('/admin/create')}}>create</h1>
                 <h1 className="text-white font-bold cursor-pointer" onClick={ logout }>logout</h1>
             </div>
         </div>

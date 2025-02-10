@@ -15,7 +15,7 @@ export default function LoginPage() {
 
         try {
              await userStore.login(email, password)
-             router.push("/dashboard");
+             router.push("/admin/dashboard");
         } catch (err) {
             setError("Login failed. Check your credentials.");
         }
